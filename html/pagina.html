@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title> mi servidor docker con fedora </title>
+        <style>
+            body {background-color: #ffffff; color: #000000;}
+        </style>
+        <script>
+            const boton = document.getElementById('color')
+            let oscuro = false
+
+            boton.addEventListener('click', async() => {
+                if (oscuro) {
+                    document.body.style.backgroundColor = '#ffffff' ;
+                    document.body.style.color = '#000000' ;
+                    oscuro = false;
+                } else {
+                    document.body.style.backgroundColor = '#000000' ;
+                    document.body.style.color = '#ffffff' ; 
+                    oscuro = true
+            }
+
+            try {
+                await fetch ('http:localhost:5000/guardar', {
+                    method: 'POST',
+                    headers : {'Content-Type':'application/json'},
+                    body : JSON.stringify({
+                        oscuro : oscuro ,
+                    })
+                })
+                console.log("guardado");
+            } catch (error) {
+                console.error("Error:", error)
+            }})
+        </script>
+
+
+    </head>
+    <body>
+        <h1> Servidor apache funciona </h1>
+        <button id = "color" >._.</button>
+</html>
