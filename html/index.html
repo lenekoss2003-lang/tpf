@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title> mi servidor docker con fedora </title>
+        <style>
+            body {background-color: #ffffff; color: #000000;}
+        </style>
+        
+
+
+    </head>
+    <body>
+        <h1> Servidor apache funciona </h1>
+        <button id = "bot" >._.</button>
+        <script>
+            const boton = document.getElementById('bot')
+
+            boton.addEventListener('click', async() => {
+
+            try {
+                await fetch ('http://localhost:5000/guardar', {
+                    method: 'POST',
+                
+                });
+                console.log("ok")
+        
+            } catch (error) {
+                console.error("Error:", error)
+            }});
+
+        </script>
+</html>

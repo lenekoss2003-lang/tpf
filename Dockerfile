@@ -8,10 +8,10 @@ WORKDIR /usr/src/app
 
 COPY requisitos.txt requisitos.txt
 RUN pip install --no-cache-dir -r requisitos.txt
-COPY app/ .
+COPY app.py .
 
 
-EXPOSE 80 5000
+EXPOSE 5000
 
 CMD ["python3",  "app.py"]
 

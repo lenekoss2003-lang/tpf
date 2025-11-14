@@ -1,0 +1,25 @@
+services:
+  apache:
+    build: 
+      context: .
+      dockerfile: APACHE.dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - python
+    networks:
+      - web
+
+  
+  python:
+    build: .
+    ports:
+      - "5000:5000"
+    networks:
+      - web
+
+networks:
+  web:
+    driver: bridge
+
+
